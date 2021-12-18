@@ -1,12 +1,12 @@
 import {useMoralis} from 'react-moralis';
 import Image from 'next/image';
-import Avatar from '../components/Avatar';
-import ChangeUsername from "../components/ChangeUsername";
+import Avatar from './Avatar';
+import ChangeUsername from "./ChangeUsername";
 
 function Header() {
     const {user} = useMoralis();
     return (
-        <div className="sticky top-0 p-5 z-50 text-rose-400 shadow-2xl border-b-2 border-pink-500">
+        <div className="sticky top-0 p-5 z-50 bg-black  text-rose-400 shadow-2xl border-b-2 border-pink-500">
             <div className="grid grid-cols-5 lg:grid-cols-6 items-end lg:items-center">
                 <div className="relative h-24 w-24 mx-auto hidden lg:inline-grid">
                     <Image className="object-cover rounded-full"
