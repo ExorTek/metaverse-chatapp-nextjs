@@ -1,7 +1,7 @@
 import {useMoralis} from "react-moralis";
 import {useState} from "react";
 
-function SendMessage() {
+function SendMessage({endOfMessageRef}) {
     const {user, Moralis} = useMoralis();
     const [message, setMessage] = useState("");
     const sendMessage = (e) => {
@@ -22,8 +22,9 @@ function SendMessage() {
                 console.log(error);
             }
         );
-
-    }
+        endOfMessageRef.current.scrollIntoView({behavior: 'smooth'});
+        setMessage("");
+    };
     return (
         <form className="flex fixed bottom-10 bg-pink-800  w-11/12 px-6 py-4 max-w-2xl shadow-2xl rounded-full">
             <input className="flex-grow outline-none bg-transparent text-white placeholder-gray-300 pr-5"
