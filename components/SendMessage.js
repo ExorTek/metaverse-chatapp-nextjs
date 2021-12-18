@@ -1,4 +1,4 @@
-import {useMoralis} from "react-moralis";
+import {ByMoralis, useMoralis} from "react-moralis";
 import {useState} from "react";
 
 function SendMessage({endOfMessageRef}) {
@@ -38,6 +38,7 @@ function SendMessage({endOfMessageRef}) {
             </button>
 
         </form>
+
     );
 }
 
