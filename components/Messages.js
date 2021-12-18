@@ -16,24 +16,27 @@ function Messages() {
         , [],
         {live: true}
     );
-    return (<div className="pb-56 shadow-2xl">
-        <div className="my-5">
-            {/*<ByMoralis variant={"dark"} style={{marginLeft: "auto", marginRight: "auto"}}/>*/}
+    return (
+        <div className="pb-56 shadow-2xl">
+            <div className="space-y-10 p-4 ">
+                {data.map(message => (
+                    <Message key={message.id} message={message}/>
+                ))}
+            </div>
+            <div className="flex justify-center">
+                <SendMessage endOfMessageRef={endOfMessageRef}/>
+                {/*<div className="my-5">*/}
+                {/*    <ByMoralis variant={"dark"} style={{marginLeft: "auto", marginRight: "auto"}}/>*/}
+                {/*</div>*/}
+            </div>
+            <div ref={endOfMessageRef} className="text-center text-gray-400 mt-5">
+                <p>
+                    You're up to date {user.getUsername()}!
+                </p>
+            </div>
+
         </div>
-        <div className="space-y-10 p-4 ">
-            {data.map(message => (
-                <Message key={message.id} message={message}/>
-            ))}
-        </div>
-        <div className="flex justify-center">
-            <SendMessage endOfMessageRef={endOfMessageRef}/>
-        </div>
-        <div ref={endOfMessageRef} className="text-center text-gray-400 mt-5">
-            <p>
-                You're up to date {user.getUsername()}!
-            </p>
-        </div>
-    </div>);
+    );
 }
 
 export default Messages;
