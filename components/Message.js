@@ -1,5 +1,6 @@
-import {useMoralis} from "react-moralis";
-import Avatar from "./Avatar";
+import {useMoralis} from 'react-moralis';
+import Avatar from './Avatar';
+import TimeAgo from 'timeago-react'
 
 function Message({message}) {
     const {user} = useMoralis();
@@ -13,11 +14,14 @@ function Message({message}) {
             }`}>
                 <Avatar username={message.get("username")}/>
             </div>
+            <TimeAgo className={`text-[10px] italic text-gray-400 ${
+                isUserMessage && 'order-first pr-1'
+            }`} datetime={message.createdAt}/>
             <div
                 className={`flex space-x-4 p-3 rounded-lg ${isUserMessage ? 'rounded-br-none bg-pink-300' : 'rounded-bl-none bg-blue-400'}`}>
                 <p>{message.get('message')}</p>
             </div>
-            {/*Timestamp*/}
+
             <p className={`absolute -bottom-5 text-xs ${
                 isUserMessage ? 'text-pink-500' : 'text-fuchsia-500'
             }`}>
